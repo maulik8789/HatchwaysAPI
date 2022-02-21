@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table, th, td {
+           border: 1px solid black;
+           padding: 5px;
+        }
+     </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Author_Id</th>
+                    <th>Author</th>
+                    <th>Tags</th>
+                    <th>Likes</th>
+                    <th>Reads</th>
+                    <th>Popularity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data['posts'] %}
+                    <tr>
+                        <td>{{item['id']}}</td>
+                        <td>{{item['authorId']}}</td>
+                        <td>{{item['author']}}</td>
+                        <td>{{item['tags']}}</td>
+                        <td>{{item['likes']}}</td>
+                        <td>{{item['reads']}}</td>
+                        <td>{{item['popularity']}}</td>
+                    </tr>    
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
