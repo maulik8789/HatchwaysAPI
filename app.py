@@ -1,8 +1,6 @@
-from textwrap import indent
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, session
 import json
 import requests
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '12345'
@@ -17,7 +15,7 @@ def home():
 
 #showing posts related to tag/tags......................
 @app.route('/showposts', methods = ['POST'])
-def rec_names():
+def posts():
     s = str(request.form.get('tag'))
     if s == "" :
         flash("Tags parameter is required")
@@ -26,4 +24,4 @@ def rec_names():
     url = f"https://api.hatchways.io/assessment/blog/posts?tag={s}"
     r = requests.get(url)
     data = json.loads(r.text)
-    return render_template('list.html', data = data)            
+    return render_template('list.html', data = data, s = s)            

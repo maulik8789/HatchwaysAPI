@@ -13,7 +13,11 @@
     <title>Document</title>
 </head>
     <body>
-        <table>
+        <h1>List of Posts</h1>
+        <form action="/">
+            <button>Go Home</button>
+        </form>
+        <table id="myTable">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -39,5 +43,6 @@
                 {% endfor %}
             </tbody>
         </table>
+        <script src="/static/app.js"></script>
     </body>
 </html>
